@@ -1,0 +1,39 @@
+﻿@using ETicaretOtomasyonv2.Models.Siniflar
+
+@model List<Cariler>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+
+<table class="table table-striped">
+    <tr>
+        <th>#</th>
+        <th>Ad</th>
+        <th>Soyad</th>
+        <th>Ülke</th>
+        <th>Şehir</th>
+        <th>Mail</th>
+        <th>İşlemler</th>
+    </tr>
+
+    @foreach (var n in Model)
+    {
+        <tr>
+            <td>@n.Cariid</td>
+            <td>@n.CariAd</td>
+            <td>@n.CariSoyad</td>
+            <td>@n.CariUlke</td>
+            <td>@n.CariSehir</td>
+            <td>@n.CariMail</td>
+            <td><a href="/Cari/CariGetir/@n.Cariid" class="btn btn-success">Düzenle</a> <a href="/Cari/CariDelete/@n.Cariid" class="btn btn-danger">Sil</a> <a href="/Cari/MusteriSatis/@n.Cariid" class="btn btn-info">Satış Geçmişi</a></td>
+
+        </tr>
+
+    }
+
+</table>
+<a href="/Cari/CariEkle" class="btn btn-success">Yeni Cari Kaydı</a>

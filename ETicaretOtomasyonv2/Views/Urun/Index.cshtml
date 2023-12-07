@@ -1,0 +1,43 @@
+﻿@using ETicaretOtomasyonv2.Models.Siniflar
+
+@model List<Urunler>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<table class="table table-bordered" style="margin-top:20px">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>ÜRÜN</th>
+            <th>MARKA</th>
+            <th>STOK</th>
+            <th>ALIŞ FİYATI</th>
+            <th>KATEGORİ</th>
+            <th>GÖRSEL</th>
+            <th>İŞLEMLER</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@item.UrunID</td>
+            <td>@item.UrunAd</td>
+            <td>@item.Marka</td>
+            <td>@item.StokSayısı</td>
+            <td>@item.Fiyat</td>
+            <td>@item.Kategori.KategoriAd</td>
+            <td>@item.UrunGorsel</td>
+
+            <td><a href="/Urun/UrunGetir/@item.UrunID" class="btn btn-success">Güncelle</a> <a href="/Urun/UrunDelete/@item.UrunID" class="btn btn-danger">Sil</a></td>
+        </tr>
+
+        }
+    </tbody>
+
+</table>
+<a href="/Urun/UrunAdd" class="btn btn-success" style="margin-top:20px">Yeni Kategori Ekle</a>
+
+

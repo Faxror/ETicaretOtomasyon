@@ -1,0 +1,43 @@
+﻿@using ETicaretOtomasyonv2.Models.Siniflar
+@model List<SatisHareket> 
+@{
+    ViewBag.Title = "DepartmanPersonelSatis";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Personel Satış Sayfası</h2>
+<br />
+
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Personel Adı: @ViewBag.dpers</li>
+</ol>
+
+<br />
+
+<table class="table table-condensed">
+    <tr>
+        <th>#</th>
+        <th>Ürün</th>
+        <th>Cari</th>
+        <th>Fiyat</th>
+        <th>Adet</th>
+        <th>Toplam</th>
+        <th>Tarih</th>
+        <th>İşlemler</th>
+    </tr>
+
+    @foreach (var n in Model)
+            {
+                <tr>
+                    <td>@n.SatisID</td>
+                    <td>@n.Urun.UrunAd</td>
+                    <td>@n.Cariler.CariAd @n.Cariler.CariSoyad</td>
+                    <td>@n.Fiyat</td>
+                    <td>@n.Adet</td>
+                    <td>@n.ToplamTutar</td>
+                    <td>@n.Tarih</td>
+                    <td><a href="#" class="btn btn-info">Yazdır</a></td>
+</tr>
+            }
+</table>
