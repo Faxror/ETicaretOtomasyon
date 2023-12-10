@@ -11,23 +11,23 @@ namespace ETicaretOtomasyonv2.Controllers
     {
         // GET: Sepet
         Context c = new Context();
-        public ActionResult Index(decimal?Tutar)
+        public ActionResult Index(decimal? Tutar)
         {
 
-            if(User.Identity.IsAuthenticated)
+            if (User.Identity.IsAuthenticated)
             {
                 var kullaniciadi = User.Identity.Name;
-                var kullanici = c.Carilers.FirstOrDefault(x => x.CariMail == kullaniciadi);
+                var kullanici = c.Carilers.SingleOrDefault(x => x.CariMail == kullaniciadi);
                 var model = c.Sepets.Where(x => x.kullaniciid == kullanici.Cariid).ToList();
                 var kid = c.Sepets.FirstOrDefault(x => x.kullaniciid == kullanici.Cariid);
 
-                if (model !=null)
+                if (model != null)
                 {
                     if (kid == null)
                     {
                         ViewBag.Tutar = "Sepetinizde Ürün Bulunmamaktadır.";
                     }
-                    else if (kid!=null)
+                    else if (kid != null)
                     {
                         Tutar = c.Sepets.Where(b => b.kullaniciid == kid.kullaniciid).Sum(x => x.Urunler.Fiyat + x.Adet);
                         ViewBag.Tutar = "Tutar = " + Tutar + "TL";
@@ -38,6 +38,12 @@ namespace ETicaretOtomasyonv2.Controllers
             return HttpNotFound();
         }
 
+
+        public ActionResult CartPayment()
+        {
+
+            return View();
+        }
         public ActionResult SepeteEkle(int id)
         {
             if (User.Identity.IsAuthenticated)
@@ -46,34 +52,36 @@ namespace ETicaretOtomasyonv2.Controllers
                 var model = c.Carilers.FirstOrDefault(x => x.CariMail == kullaniciadi);
                 var U = c.Urunlers.Find(id);
                 var sepet = c.Sepets.FirstOrDefault(x => x.kullaniciid == model.Cariid && x.UrunID == id);
-                if (model !=null)
+
+                if (model != null)
                 {
-                    if (sepet!=null)
+                    if (sepet != null)
                     {
                         sepet.Adet++;
                         sepet.Fiyat = U.Fiyat * sepet.Adet;
-                        c.SaveChanges();
-                        return RedirectToAction("Index");
                     }
-                    var s = new Sepet()
+                    else
                     {
-                        kullaniciid = model.SepetID,
-                        Adet = 1,
-                        Fiyat = U.Fiyat,
-                        Tarih = DateTime.Now,
-                        UrunID = U.UrunID // İkinci 'UrunID' ataması
-                    };
-                    c.Sepets.Add(s);
+                        var s = new Sepet()
+                        {
+                            kullaniciid = model.SepetID,
+                            UrunId = U.UrunID, // Ensure UrunID is assigned only once
+                            Adet = 1,
+                            Fiyat = U.Fiyat,
+                            Tarih = DateTime.Now
+                        };
+                        c.Sepets.Add(s);
+                    }
+
                     c.SaveChanges();
-                
                     return RedirectToAction("Index");
                 }
-                return View();
+                return View(); // Consider returning an appropriate view here
             }
-            return HttpNotFound();
-            }
+            return HttpNotFound(); // Consider returning an appropriate result here
+        }
 
-        public ActionResult SepetCount(int?count)
+        public ActionResult SepetCount(int? count)
         {
             if (User.Identity.IsAuthenticated)
             {
@@ -87,6 +95,6 @@ namespace ETicaretOtomasyonv2.Controllers
                 return PartialView();
             }
             return HttpNotFound();
-            }
+        }
     }
 }

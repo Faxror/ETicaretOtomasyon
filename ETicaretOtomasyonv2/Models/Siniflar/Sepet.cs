@@ -25,7 +25,7 @@ namespace ETicaretOtomasyonv2.Models.Siniflar
         public ICollection<Cariler> Cariler { get; set; }
 
         // UrunID'nin 'Urunler' tablosuna referans olduğunu varsayalım:
-
+        public int UrunId { get; set; }
         public virtual Urunler Urunler { get; set; }
 
     }

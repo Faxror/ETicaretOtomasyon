@@ -31,7 +31,8 @@ namespace ETicaretOtomasyonv2.Controllers
         [HttpPost]
         public ActionResult Login(Cariler s)
         {
-            var bilgi = c.Carilers.FirstOrDefault(x => x.CariMail == s.CariMail && x.password == s.password);
+            var bilgi = c.Carilers.First(x => x.CariMail == s.CariMail && x.password == s.password);
+
             if (bilgi != null)
             {
                 FormsAuthentication.SetAuthCookie(bilgi.CariMail, false);

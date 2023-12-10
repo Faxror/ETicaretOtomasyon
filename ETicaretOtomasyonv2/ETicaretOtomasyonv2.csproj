@@ -321,6 +321,10 @@
     <Compile Include="Migrations\202312062319141_database-crete.designer.cs">
       <DependentUpon>202312062319141_database-crete.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202312101733571_new-database.cs" />
+    <Compile Include="Migrations\202312101733571_new-database.designer.cs">
+      <DependentUpon>202312101733571_new-database.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Siniflar\Admin.cs" />
     <Compile Include="Models\Siniflar\Cariler.cs" />
@@ -645,6 +649,8 @@
     <Content Include="Views\Urun\UrunsPartial.cshtml" />
     <Content Include="Views\Sepet\Index.cshtml" />
     <Content Include="Views\Sepet\SepetCount.cshtml" />
+    <Content Include="Views\Home\Anasayfa.cshtml" />
+    <Content Include="Views\Sepet\CartPayment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -665,6 +671,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202312062319141_database-crete.resx">
       <DependentUpon>202312062319141_database-crete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202312101733571_new-database.resx">
+      <DependentUpon>202312101733571_new-database.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

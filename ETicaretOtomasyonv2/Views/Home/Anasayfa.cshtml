@@ -1,0 +1,54 @@
+﻿@using ETicaretOtomasyonv2.Models.Siniflar
+@model List<Urunler>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>E-Ticaret Sitesi</title>
+    <link rel="stylesheet" href="https://devtest.pekova.com.tr/app/obs/accountservice/%C4%B1ndex.css">
+</head>
+<body>
+
+    <header>
+        <h1>Hoş Geldiniz! @Session["Ad"] @Session["SoyAd"]</h1>
+        <nav>
+            <ul>
+                @if (User.IsInRole("A"))
+                {
+                    <li><a href="/Kategori/Index">Admin</a></li>
+
+                }
+                <li><a href="/Sepet/Index" @{Html.RenderAction("SepetCount", "Sepet");}>Sepetim</a></li>
+                <li><a href="sepetim.html">Profil</a></li>
+                <li><a href="/Account/loginOUT">Çıkış Yap</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="products">
+            <h2>Ürünler</h2>
+            @foreach (var item in Model)
+            {
+                <div class="product">
+                    <img src="@item.UrunGorsel" alt="Ürün 1">
+                    <h3>@item.UrunAd</h3>
+                    <p>Fiyat: @item.Fiyat (TL)</p>
+                    <a class="btn btn-info" href="/Sepet/SepeteEkle/@item.UrunID">Sepete Ekle</a>
+                </div>
+            }
+
+            <!-- Diğer ürünler -->
+        </section>
+
+
+    </main>
+
+    <footer>
+        <p>&copy; 2023 E-Ticaret Sitesi</p>
+    </footer>
+
+</body>
+</html>
+
