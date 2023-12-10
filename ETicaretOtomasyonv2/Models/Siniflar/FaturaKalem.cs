@@ -19,6 +19,8 @@ namespace ETicaretOtomasyonv2.Models.Siniflar
         public decimal BirtimFiyat { get; set; }
         public decimal Tutar { get; set; }
 
-        public Faturalar Faturalar { get; set; }
+        public int FaturaID { get; set; }
+
+        public virtual Faturalar Faturalar { get; set; }
     }
 }

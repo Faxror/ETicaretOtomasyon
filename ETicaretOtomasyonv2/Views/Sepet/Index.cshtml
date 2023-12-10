@@ -1,0 +1,58 @@
+﻿
+@model List<ETicaretOtomasyonv2.Models.Siniflar.Sepet>
+@{
+    ViewBag.Title = "Home Page";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>E-Ticaret</title>
+    <link rel="stylesheet" href="https://devtest.pekova.com.tr/app/obs/accountservice/sepetim.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <h1>Sepetiniz @Session["Ad"] @Session["SoyAd"]</h1>
+            <nav>
+                <a href="/Home/Index">Ana Sayfa</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section id="cart" class="cart-section">
+            <div class="container">
+                <h2>Sepet İçeriği</h2>
+                @foreach (var item in Model)
+                {
+                    <ul class="cart-items">
+                        <li>
+                            <img src="@item.Urunler.UrunGorsel" alt="Ürün 1 Resmi">
+                            <div class="item-details">
+                                <h3>@item.Urunler.UrunAd</h3>
+                                <p>Fiyat: @item.Fiyat</p>
+                                <p>Miktar: @item.Adet</p>
+                                <!-- Diğer ürün bilgileri -->
+                            </div>
+                        </li>
+
+
+                    </ul>
+
+                    <p>Toplam: @ViewBag.Tutar</p>
+                }
+                <a href="/Sepet/CartPayment" class="checkout-btn">Siparişi Tamamla</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2023 E-Ticaret Sitesi</p>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -27,6 +27,7 @@ namespace ETicaretOtomasyonv2.Models.Siniflar
         public ICollection<SatisHareket> SatisHareket { get; set; }
 
         public int DepartmanID { get; set; }
+        public bool Durum { get; set; }
         public virtual Departman Departman { get; set; }
     }
 }

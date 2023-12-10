@@ -1,0 +1,34 @@
+﻿@using ETicaretOtomasyonv2.Models.Siniflar
+@model List<FaturaKalem>
+@{
+    ViewBag.Title = "FaturaDetay";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Fatura Kalem</h2>
+<br />
+
+
+
+<table class="table table-hover">
+    <tr>
+        <th>#</th>
+        <th>Açıklama</th>
+        <th>Miktar</th>
+        <th>Birim Fiyat</th>
+        <th>Tutar</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.FaturaKalemID</td>
+            <td>@x.Açıklama</td>
+            <td>@x.Miktar</td>
+            <td>@x.BirtimFiyat</td>
+            <td>@x.Tutar</td>
+           
+        </tr>
+
+    }
+</table>
+<a href="/Fatura/KalemGiris" class="btn btn-default" style="background-color:orangered">Fatura Kalem Girişi</a>

@@ -1,0 +1,16 @@
+﻿@using ETicaretOtomasyonv2.Models.Siniflar
+@model List<Urunler>
+
+<section id="products">
+    <h2>Ürünler</h2>
+    @foreach(var item in Model) {
+    <div class="product">
+        <img src="@item.UrunGorsel" alt="Ürün 1">
+        <h3>@item.UrunAd</h3>
+        <p>Fiyat: @item.Fiyat</p>
+        <a class="btn btn-info">Sepete Ekle</a>
+    </div>
+    }
+
+    <!-- Diğer ürünler -->
+</section>

@@ -18,5 +18,6 @@ namespace ETicaretOtomasyonv2.Models.Siniflar
         public DbSet<Personel> Personels { get; set; }
         public DbSet<SatisHareket> SatisHarekets { get; set; }
         public DbSet<Admin> Admins { get; set; }
+        public DbSet<Sepet> Sepets { get; set; }
     }
 }

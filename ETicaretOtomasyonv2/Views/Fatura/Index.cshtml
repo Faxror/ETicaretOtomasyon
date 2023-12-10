@@ -1,0 +1,46 @@
+﻿
+@using ETicaretOtomasyonv2.Models.Siniflar
+
+@model List<Faturalar>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<table class="table table-bordered" style="margin-top:20px">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Seri No</th>
+            <th>Sıra No</th>
+            <th>Tarih  </th>
+            <th>Saat  </th>
+            <th>Teslim Eden  </th>
+            <th>Teslim Alan  </th>
+            <th>Toplam  </th>
+            <th>İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@item.FaturaID</td>
+            <td>@item.FaturaSerino</td>
+            <td>@item.FaturaSırano</td>
+            <td>@item.Tarihi</td>
+            <td>@item.Saat</td>
+            <td>@item.TeslimEden</td>
+            <td>@item.TeslimAlan</td>
+            <td>@item.Toplam</td>
+            <td><a href="/Fatura/FaturaGetir/@item.FaturaID" class="btn btn-success">Düzenle</a>    <a href="/Fatura/FaturaDetay/@item.FaturaID" class="btn btn-success" style="background-color:darkred">Detaylar</a></td>
+
+        </tr>
+
+        }
+    </tbody>
+
+</table>
+<a href="/Fatura/FaxturaEkle" class="btn btn-success" style="margin-top:20px">Yeni Fatura Ekle</a>
+
+

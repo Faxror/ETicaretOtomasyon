@@ -1,0 +1,80 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+
+}
+
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: white; /* changed from black */
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .container {
+            padding: 16px;
+            background-color: white;
+            width: 50%; /* changed from 100% */
+            margin: auto; /* added this property */
+        }
+
+        input[type=text], input[type=password] {
+            width: 100%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            border: none;
+            background: #f1f1f1;
+        }
+
+            input[type=text]:focus, input[type=password]:focus {
+                background-color: #ddd;
+                outline: none;
+            }
+
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 16px 20px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            opacity: 0.9;
+        }
+
+            .btn:hover {
+                opacity: 1;
+            }
+
+        hr {
+            border: 1px solid black; /* changed from none */
+        }
+    </style>
+</head>
+<body>
+
+    <form method="post">
+        <div class="container">
+            <h1>Giriş Yap</h1>
+            <p>Siteye ulaşmak için lütfen giriş yapınız.</p>
+            <hr>
+
+            <label for="email"><b>Kullanıcı Adı</b></label>
+            <input type="text" placeholder="Kullanıcı Adı" name="CariMail" id="email" required>
+
+            <label for="psw"><b>Şifre</b></label>
+            <input type="password" placeholder="Şifre" name="password" id="psw" required>
+
+            <button type="submit" class="btn">Giriş Yap</button>
+            <a href="/Account/Register" >Kayıt Ol</a>
+        </div>
+    </form>
+
+</body>
+</html>
+
+

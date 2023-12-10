@@ -1,0 +1,42 @@
+﻿@using ETicaretOtomasyonv2.Models.Siniflar
+
+@model List<Personel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+
+<table class="table table-bordered" style="margin-top:20px">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Personel Adı</th>
+            <th>Personel Soyadı</th>
+            <th>Görsel</th>
+            <th>Departman</th>
+            <th>Durum</th>
+            <th>İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.PersonelID</td>
+                <td>@item.PersonelAd</td>
+                <td>@item.PersonelSoyad</td>
+                <td>@item.PersonelGorsel</td>
+                <td>@item.Departman.DepartmanAdı</td>
+                <td>@item.Durum</td>
+                <td><a href="/Personel/PersonelGetir/@item.PersonelID" class="btn btn-success">Düzenle</a>     <a href="/Personel/PersonelDelete/@item.PersonelID" class="btn btn-danger">Sil</a> <a href="/Departman/DepartmanPersonelSatis/@item.DepartmanID" class="btn btn-success" style="background-color:darkred">Detaylar</a></td>
+
+            </tr>
+
+        }
+    </tbody>
+
+</table>
+<a href="/Personel/PersonelEkle" class="btn btn-outline-success" style="margin-top:20px">Yeni Personel Ekle</a>

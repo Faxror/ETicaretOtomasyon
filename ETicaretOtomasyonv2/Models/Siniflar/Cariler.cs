@@ -26,7 +26,14 @@ namespace ETicaretOtomasyonv2.Models.Siniflar
         [Column(TypeName = "Varchar")]
         [StringLength(50)]
         public string CariMail { get; set; }
+        public string Kullaniciadi { get; set; }
+        public string password { get; set; }
+        public string passwordconfirim { get; set; }
+        public string Rol { get; set; }
 
+        public int SepetID { get; set; }
+
+        public virtual Sepet Sepet { get; set; }
         public string CariUlke { get; set; }
         public bool Durum { get; set; }
         public ICollection<SatisHareket> SatisHareket { get; set; }

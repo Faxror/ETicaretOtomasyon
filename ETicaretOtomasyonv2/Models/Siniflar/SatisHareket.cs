@@ -24,5 +24,9 @@ namespace ETicaretOtomasyonv2.Models.Siniflar
 
         public int PersonelID { get; set; }
         public virtual Personel Personel { get; set; }
+
+        public int SepetID { get; set; }
+
+        public virtual Sepet Sepet { get; set; }
     }
 }

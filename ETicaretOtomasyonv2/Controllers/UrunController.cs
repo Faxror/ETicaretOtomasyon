@@ -51,6 +51,7 @@ namespace ETicaretOtomasyonv2.Controllers
             return RedirectToAction("Index");
         }
 
+      
         public ActionResult UrunGetir(int id)
         {
             List<SelectListItem> urunle2rs = (from x in c.Kategoris.ToList()
@@ -76,6 +77,12 @@ namespace ETicaretOtomasyonv2.Controllers
             ur.UrunAd = p.UrunAd;
             c.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult UrunListesi ( )
+        {
+            var degerpdf = c.Urunlers.ToList();
+            return View(degerpdf);
         }
     }
 }

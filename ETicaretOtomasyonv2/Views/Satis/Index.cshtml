@@ -1,0 +1,60 @@
+﻿@using ETicaretOtomasyonv2.Models.Siniflar
+
+@model List<SatisHareket>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<table  id="tbl1" class="table table-bordered" style="margin-top:20px">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Ürün</th>
+            <th>Cari</th>
+            <th>Personel</th>
+            <th>Adet</th>
+            <th>Fiyat</th>
+            <th>Toplam</th>
+            <th>Tarih</th>
+            <th>işlemler</th>
+        </tr>
+    </thead>
+    
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.SatisID</td>
+                <td>@item.Urun.UrunAd</td>
+                <td>@item.Cariler.CariAd @item.Cariler.CariSoyad</td>
+                <td>@item.Personel.PersonelAd @item.Personel.PersonelSoyad</td>
+                <td>@item.Adet</td>
+                <td>@item.Fiyat</td>
+                <td>@item.ToplamTutar</td>
+                <td>@item.Tarih</td>
+                <td><a href="/Satis/SatisGetir/@item.SatisID" class="btn btn-success">Düzenle</a> <a href="/Satis/SatisDetay/@item.SatisID" class="btn btn-success" style="background-color:darkred">Detaylar</a></td>
+
+            </tr>
+
+        }
+    
+
+</table>
+<a href="/Satis/SatisYap" class="btn btn-success" style="margin-top:20px">Yeni Satış Yap</a>
+
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+<script>
+    $('#tbl1').dataTable({});
+</script>
+
