@@ -97,7 +97,6 @@ namespace ETicaretOtomasyonv2.Controllers
             deger.CariID = p.CariID;
             deger.Adet = p.Adet;
             deger.Fiyat = p.Fiyat;
-            deger.PersonelID = p.PersonelID;
             deger.Tarih = p.Tarih;
             deger.ToplamTutar = p.ToplamTutar;
             deger.UrunID = p.UrunID;
@@ -112,6 +111,57 @@ namespace ETicaretOtomasyonv2.Controllers
             return View(degersi);
 
 
+
+        }
+
+        public ActionResult Buy ( int id )
+        {
+            var model = c.Sepets.Where(x => x.Sepetıd == id).ToList();
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Buy2(int? id)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    var model = c.Sepets.FirstOrDefault(x => x.Sepetıd == id);
+                    if (model != null)
+                    {
+                        var satis = new Sales
+                    {
+                        UserId = model.kullaniciid,
+                        Fiyat = model.Fiyat,
+                        Tarih = DateTime.Now,
+                        Adet = model.Adet,
+                       UrunId = model.UrunId
+
+                                      
+                    };
+
+                    c.Sepets.Remove(model);
+                    c.Sales.Add(satis);
+                    c.SaveChanges();
+                    ViewBag.Success = "Başarılı şekilde satın aldınız.";
+
+                    }
+                    else
+                    {
+
+                        ViewBag.Success = "Belirtilen ID ile sepet bulunamadı veya eksik bilgi gönderildi. ID: " + id;
+                        return View("islem");
+                    }
+
+
+                }
+               
+            } catch (Exception)
+            {
+                ViewBag.Success = "Satın alma işlemi başarısız.";
+            }
+            return View("islem");
 
         }
     }

@@ -12,7 +12,7 @@ namespace ETicaretOtomasyonv2.Models.Siniflar
         public int SatisID { get; set; }
         public DateTime Tarih { get; set; }
 
-        public int Adet { get; set; }
+        public decimal Adet { get; set; }
         public decimal Fiyat { get; set; }
         public decimal ToplamTutar { get; set; }
 
@@ -22,8 +22,7 @@ namespace ETicaretOtomasyonv2.Models.Siniflar
         public int CariID { get; set; }
         public virtual Cariler Cariler { get; set; }
 
-        public int PersonelID { get; set; }
-        public virtual Personel Personel { get; set; }
+
 
         public int SepetID { get; set; }
 

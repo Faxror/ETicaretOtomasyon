@@ -19,9 +19,7 @@
     @Html.Label("Cari")
     @Html.DropDownListFor(x => x.CariID, (List<SelectListItem>)ViewBag.satis5, new { @class = "form-control" })
     <br />
-    @Html.LabelFor(x => x.Personel)
-    @Html.DropDownListFor(x => x.PersonelID, (List<SelectListItem>)ViewBag.satis6, new { @class = "form-control" })
-    <br />
+    
     @Html.LabelFor(x => x.Adet)
     @Html.TextBoxFor(x => x.Adet, new { @class = "form-control" })
     <br />

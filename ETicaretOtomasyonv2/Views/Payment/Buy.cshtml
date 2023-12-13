@@ -1,0 +1,36 @@
+﻿@model List<ETicaretOtomasyonv2.Models.Siniflar.Sepet>
+
+@using (Html.BeginForm("Buy2", "Payment", FormMethod.Post))
+{
+    foreach (var item in Model)
+    {
+
+
+
+
+        <div>
+            <div class="modal-body">
+                @Html.TextBoxFor(x => item.Sepetıd)
+            </div>
+
+            <div class="modal-body">
+                Kullanıcı Adı :  @Session["Ad"] @Session["SoyAd"]
+            </div>
+
+            <div class="modal-body">
+                Ürün Bilgisi : @Html.DisplayFor(x => item.Urunler.UrunAd, new { @class = "form-control" })
+            </div>
+
+            <div class="modal-body">
+                Adet : @Html.DisplayFor(x => item.Adet, new { @class = "form-control" })
+            </div>
+
+            <div class="modal-body">
+                Fiyat : @Html.DisplayFor(x => item.Fiyat, new { @class = "form-control" })
+            </div>
+
+
+            <button class="btn btn-info"> Ödemeyi Tamamla </button>
+        </div>
+    }
+}

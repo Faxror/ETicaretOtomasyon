@@ -70,10 +70,8 @@ namespace ETicaretOtomasyonv2.Controllers
 
         public ActionResult DepartmanPersonelSatis(int id)
         {
-            var degersi = c.SatisHarekets.Where(x => x.PersonelID == id).ToList();
-            var perr =  c.Personels.Where(x => x.PersonelID == id).Select(y => y.PersonelAd + y.PersonelSoyad).FirstOrDefault();
-            ViewBag.dpers = perr;
-            return View(degersi);
+            
+            return View();
         }
 
     }
