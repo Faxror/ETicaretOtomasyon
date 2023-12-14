@@ -666,6 +666,7 @@
     <Content Include="eshopper-1.0.0\scss\bootstrap\scss\_utilities.scss" />
     <Content Include="eshopper-1.0.0\scss\bootstrap\scss\_variables.scss" />
     <Content Include="eshopper-1.0.0\scss\style.scss" />
+    <Content Include="yapılacaklar.txt" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.min.js" />

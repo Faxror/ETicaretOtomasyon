@@ -1,0 +1,3 @@
+﻿ödeme yöntemi sayfası
+sepet sayfası css fix ve back-end hata fix
+sepete ekleme hata fix
