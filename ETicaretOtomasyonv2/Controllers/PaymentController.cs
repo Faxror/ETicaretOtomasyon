@@ -17,7 +17,7 @@ namespace ETicaretOtomasyonv2.Controllers
             {
                 var kullaniciadi = User.Identity.Name;
                 var kullanici = c.Carilers.FirstOrDefault(x => x.CariMail == kullaniciadi);
-                var model = c.SatisHarekets.Where(x => x.CariID == kullanici.SepetID).ToList();
+                var model = c.Sales.Where(x => x.UserId == kullanici.SepetID).ToList();
                 return View(model);
             }
             return HttpNotFound();

@@ -96,5 +96,15 @@ namespace ETicaretOtomasyonv2.Controllers
             }
             return HttpNotFound();
         }
+
+        public PartialViewResult checkout ()
+        {
+           
+
+                var model = c.Sepets.ToList();
+                return PartialView(model);
+
+           
+        }
     }
 }

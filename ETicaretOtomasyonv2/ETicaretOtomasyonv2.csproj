@@ -343,6 +343,8 @@
     <Compile Include="Models\Siniflar\Urunler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Roller\AdminRolProvider.cs" />
+    <Compile Include="ViewComponents\PaymentCheckList.cs" />
+    <Compile Include="ViewComponents\UrunGetList.cs" />
     <Compile Include="ViewComponents\UrunsPartial.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -804,6 +806,10 @@
     <Content Include="Views\Payment\Index.cshtml" />
     <Content Include="Views\Payment\Buy.cshtml" />
     <Content Include="Views\Payment\islem.cshtml" />
+    <Content Include="Views\Sepet\UrunGetList.cshtml" />
+    <Content Include="Views\Shared\_Checkout.cshtml" />
+    <Content Include="Views\Sepet\PaymentCheckList.cshtml" />
+    <Content Include="Views\Sepet\checkout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
