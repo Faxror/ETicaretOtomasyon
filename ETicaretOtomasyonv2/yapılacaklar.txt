@@ -1,3 +1,8 @@
 ﻿ödeme yöntemi sayfası
-sepet sayfası css fix ve back-end hata fix
+sepet sayfası  back-end hata fix
 sepete ekleme hata fix
+Ana Sayfa değişicek
+Login ve Register Değiştirilecek
+Detaylar Sayfası Eklenecek
+Favoriler Eklenecek
+Sepete Ekleme Yapınca Sayı Değeri atacak aynı şekilde favorilerde.
