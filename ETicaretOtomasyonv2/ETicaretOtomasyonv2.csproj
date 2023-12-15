@@ -306,6 +306,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CariController.cs" />
     <Compile Include="Controllers\CariIndexController.cs" />
+    <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\DepartmanController.cs" />
     <Compile Include="Controllers\FaturaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -343,6 +344,9 @@
     <Compile Include="Models\Siniflar\Urunler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Roller\AdminRolProvider.cs" />
+    <Compile Include="ViewComponents\CartGetList.cs" />
+    <Compile Include="ViewComponents\IndexGetList.cs" />
+    <Compile Include="ViewComponents\IndexHead.cs" />
     <Compile Include="ViewComponents\PaymentCheckList.cs" />
     <Compile Include="ViewComponents\UrunGetList.cs" />
     <Compile Include="ViewComponents\UrunsPartial.cs" />
@@ -800,7 +804,6 @@
     <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Urun\UrunsPartial.cshtml" />
-    <Content Include="Views\Sepet\Index.cshtml" />
     <Content Include="Views\Sepet\SepetCount.cshtml" />
     <Content Include="Views\Home\Anasayfa.cshtml" />
     <Content Include="Views\Sepet\CartPayment.cshtml" />
@@ -811,6 +814,11 @@
     <Content Include="Views\Shared\_Checkout.cshtml" />
     <Content Include="Views\Sepet\PaymentCheckList.cshtml" />
     <Content Include="Views\Sepet\checkout.cshtml" />
+    <Content Include="Views\Default\Home.cshtml" />
+    <Content Include="Views\Sepet\IndexGetList.cshtml" />
+    <Content Include="Views\Sepet\IndexHead.cshtml" />
+    <Content Include="Views\Sepet\Index.cshtml" />
+    <Content Include="Views\Sepet\sepetim.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

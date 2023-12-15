@@ -11,7 +11,7 @@ namespace ETicaretOtomasyonv2.Controllers
     {
         // GET: Sepet
         Context c = new Context();
-        public ActionResult Index(decimal? Tutar)
+        public PartialViewResult Index(decimal? Tutar)
         {
 
             if (User.Identity.IsAuthenticated)
@@ -32,10 +32,10 @@ namespace ETicaretOtomasyonv2.Controllers
                         Tutar = c.Sepets.Where(b => b.kullaniciid == kid.kullaniciid).Sum(x => x.Urunler.Fiyat + x.Adet);
                         ViewBag.Tutar = "Tutar = " + Tutar + "TL";
                     }
-                    return View(model);
+                    return PartialView(model);
                 }
             }
-            return HttpNotFound();
+            return PartialView();
         }
 
 
@@ -97,14 +97,27 @@ namespace ETicaretOtomasyonv2.Controllers
             return HttpNotFound();
         }
 
-        public PartialViewResult checkout ()
+        public PartialViewResult checkout()
         {
-           
 
-                var model = c.Sepets.ToList();
-                return PartialView(model);
 
-           
+            var model = c.Sepets.ToList();
+            return PartialView(model);
+
+
+
+
+
+
+        }
+        public PartialViewResult sepetim()
+        {
+
+
+            var model = c.Sepets.ToList();
+            return PartialView(model);
+
+
         }
     }
 }

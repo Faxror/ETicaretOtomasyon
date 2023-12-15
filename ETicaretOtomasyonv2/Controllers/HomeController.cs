@@ -19,6 +19,8 @@ namespace ETicaretOtomasyonv2.Controllers
             return View(users);
            
         }
+        
+
 
       
     }
