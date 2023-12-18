@@ -11,31 +11,11 @@ namespace ETicaretOtomasyonv2.Controllers
     {
         // GET: Sepet
         Context c = new Context();
+        [Authorize]
         public PartialViewResult Index(decimal? Tutar)
         {
-
-            if (User.Identity.IsAuthenticated)
-            {
-                var kullaniciadi = User.Identity.Name;
-                var kullanici = c.Carilers.SingleOrDefault(x => x.CariMail == kullaniciadi);
-                var model = c.Sepets.Where(x => x.kullaniciid == kullanici.Cariid).ToList();
-                var kid = c.Sepets.FirstOrDefault(x => x.kullaniciid == kullanici.Cariid);
-
-                if (model != null)
-                {
-                    if (kid == null)
-                    {
-                        ViewBag.Tutar = "Sepetinizde Ürün Bulunmamaktadır.";
-                    }
-                    else if (kid != null)
-                    {
-                        Tutar = c.Sepets.Where(b => b.kullaniciid == kid.kullaniciid).Sum(x => x.Urunler.Fiyat + x.Adet);
-                        ViewBag.Tutar = "Tutar = " + Tutar + "TL";
-                    }
-                    return PartialView(model);
-                }
-            }
             return PartialView();
+
         }
 
 
@@ -74,7 +54,7 @@ namespace ETicaretOtomasyonv2.Controllers
                     }
 
                     c.SaveChanges();
-                    return RedirectToAction("Index");
+                    return RedirectToAction("sepetim");
                 }
                 return View(); // Consider returning an appropriate view here
             }
@@ -97,12 +77,33 @@ namespace ETicaretOtomasyonv2.Controllers
             return HttpNotFound();
         }
 
-        public PartialViewResult checkout()
+        public PartialViewResult checkout(decimal? Tutar2)
         {
 
 
-            var model = c.Sepets.ToList();
-            return PartialView(model);
+            if (User.Identity.IsAuthenticated)
+            {
+                var kullaniciadi2 = User.Identity.Name;
+                var kullanici2= c.Carilers.SingleOrDefault(x => x.CariMail == kullaniciadi2);
+                var model = c.Sepets.Where(x => x.kullaniciid == kullanici2.Cariid).ToList();
+                var kid2 = c.Sepets.FirstOrDefault(x => x.kullaniciid == kullanici2.Cariid);
+
+                if (model != null)
+                {
+                    if (kid2 == null)
+                    {
+                        ViewBag.Tutar = "Sepetinizde Ürün Bulunmamaktadır.";
+                    }
+                    else if (kid2 != null)
+                    {
+                        Tutar2 = c.Sepets.Where(b => b.kullaniciid == kid2.kullaniciid).Sum(x => x.Urunler.Fiyat + x.Adet);
+                        ViewBag.Tutar2 = Tutar2 + "TL";
+                    }
+                    return PartialView(model);
+                }
+            }
+            return PartialView();
+
 
 
 
@@ -110,13 +111,31 @@ namespace ETicaretOtomasyonv2.Controllers
 
 
         }
-        public PartialViewResult sepetim()
+        public PartialViewResult sepetim(decimal? Tutar)
         {
 
+            if (User.Identity.IsAuthenticated)
+            {
+                var kullaniciadi = User.Identity.Name;
+                var kullanici = c.Carilers.SingleOrDefault(x => x.CariMail == kullaniciadi);
+                var model = c.Sepets.Where(x => x.kullaniciid == kullanici.Cariid).ToList();
+                var kid = c.Sepets.FirstOrDefault(x => x.kullaniciid == kullanici.Cariid);
 
-            var model = c.Sepets.ToList();
-            return PartialView(model);
-
+                if (model != null)
+                {
+                    if (kid == null)
+                    {
+                        ViewBag.Tutar = "Sepetinizde Ürün Bulunmamaktadır.";
+                    }
+                    else if (kid != null)
+                    {
+                        Tutar = c.Sepets.Where(b => b.kullaniciid == kid.kullaniciid).Sum(x => x.Urunler.Fiyat + x.Adet);
+                        ViewBag.Tutar =   Tutar + "TL";
+                    }
+                    return PartialView(model);
+                }
+            }
+            return PartialView();
 
         }
     }
