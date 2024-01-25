@@ -1,6 +1,7 @@
 ﻿using ETicaretOtomasyonv2.Models.Siniflar;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -31,10 +32,12 @@ namespace ETicaretOtomasyonv2.Controllers
                 var kullaniciadi = User.Identity.Name;
                 var model = c.Carilers.FirstOrDefault(x => x.CariMail == kullaniciadi);
                 var U = c.Urunlers.Find(id);
-                var sepet = c.Sepets.FirstOrDefault(x => x.kullaniciid == model.Cariid && x.UrunID == id);
+               
 
-                if (model != null)
+                
+                if (model != null &&  U != null)
                 {
+                    var sepet = c.Sepets.FirstOrDefault(x => x.kullaniciid == model.Cariid && x.UrunId == id);
                     if (sepet != null)
                     {
                         sepet.Adet++;
@@ -42,19 +45,34 @@ namespace ETicaretOtomasyonv2.Controllers
                     }
                     else
                     {
-                        var s = new Sepet()
+                        var urunSepet = new Sepet()
                         {
-                            kullaniciid = model.SepetID,
-                            UrunId = U.UrunID, // Ensure UrunID is assigned only once
+                            kullaniciid = model.Cariid,
+                            UrunId = U.UrunID,
                             Adet = 1,
                             Fiyat = U.Fiyat,
                             Tarih = DateTime.Now
                         };
-                        c.Sepets.Add(s);
+                        c.Sepets.Add(urunSepet);
                     }
+                    try
+                    {
+                        c.SaveChanges();
+                        return RedirectToAction("sepetim");
+                    }
+                    catch (DbUpdateException ex)
+                    {
+                        Exception innerException = ex.InnerException;
+                        while (innerException != null)
+                        {
+                            // Hata mesajını çıktıya yazdır
+                            Console.WriteLine(innerException.Message);
+                            innerException = innerException.InnerException;
+                        }
 
-                    c.SaveChanges();
-                    return RedirectToAction("sepetim");
+                        // İstisnayı tekrar fırlat
+                        throw;
+                    }
                 }
                 return View(); // Consider returning an appropriate view here
             }

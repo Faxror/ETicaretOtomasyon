@@ -11,7 +11,7 @@ namespace ETicaretOtomasyonv2.Models.Siniflar
         [Key]
         public int Sepetıd { get; set; }
 
-        public int UrunID { get; set; }
+        public int UrunId { get; set; }
 
         public decimal Adet { get; set; }
         public decimal Fiyat { get; set; }
@@ -23,10 +23,8 @@ namespace ETicaretOtomasyonv2.Models.Siniflar
 
         // Sepetin birden fazla müşteriyi içerdiğini varsayarsak:
         public ICollection<Cariler> Cariler { get; set; }
-
-        // UrunID'nin 'Urunler' tablosuna referans olduğunu varsayalım:
-        public int UrunId { get; set; }
         public virtual Urunler Urunler { get; set; }
+
 
     }
 }

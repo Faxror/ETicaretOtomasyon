@@ -7,18 +7,18 @@ namespace ETicaretOtomasyonv2.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class newdatabase : IMigrationMetadata
+    public sealed partial class sa : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(newdatabase));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(sa));
         
         string IMigrationMetadata.Id
         {
-            get { return "202312101733571_new-database"; }
+            get { return "202401252311007_sa"; }
         }
         
         string IMigrationMetadata.Source
         {
-            get { return Resources.GetString("Source"); }
+            get { return null; }
         }
         
         string IMigrationMetadata.Target

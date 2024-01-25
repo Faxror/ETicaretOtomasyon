@@ -1,6 +1,4 @@
 ﻿ödeme yöntemi sayfası
-sepet sayfası  back-end hata fix
-sepete ekleme hata fix
 Ana Sayfa değişicek
 Login ve Register Değiştirilecek
 Detaylar Sayfası Eklenecek
