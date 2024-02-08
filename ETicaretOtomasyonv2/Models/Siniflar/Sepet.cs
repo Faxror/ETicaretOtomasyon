@@ -17,7 +17,7 @@ namespace ETicaretOtomasyonv2.Models.Siniflar
         public decimal Fiyat { get; set; }
         public DateTime Tarih { get; set; }
         public int kullaniciid { get; set; }
-
+        public decimal Vergi { get; set; }
         // Sepetin birden fazla satış hareketini içerdiğini varsayarsak:
         public ICollection<SatisHareket> SatisHareketleri { get; set; }
 

@@ -19,9 +19,15 @@ namespace ETicaretOtomasyonv2.Controllers
             return View(users);
            
         }
-        
 
 
-      
+        public ActionResult Anasayfa()
+        {
+            Context c = new Context();
+            var users = c.Urunlers.ToList();
+            return View(users);
+
+        }
+
     }
 }

@@ -25,7 +25,7 @@ namespace ETicaretOtomasyonv2.Models.Siniflar
         [Column(TypeName = "Varchar")]
         [StringLength(250)]
         public string UrunGorsel { get; set; }
-
+        public decimal Vergi { get; set; }
         public int Kategoriid { get; set; }
         public  virtual Kategori Kategori { get; set; }
 

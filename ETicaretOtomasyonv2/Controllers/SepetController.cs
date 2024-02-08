@@ -12,6 +12,8 @@ namespace ETicaretOtomasyonv2.Controllers
     {
         // GET: Sepet
         Context c = new Context();
+
+
         [Authorize]
         public PartialViewResult Index(decimal? Tutar)
         {
@@ -31,27 +33,33 @@ namespace ETicaretOtomasyonv2.Controllers
             {
                 var kullaniciadi = User.Identity.Name;
                 var model = c.Carilers.FirstOrDefault(x => x.CariMail == kullaniciadi);
-                var U = c.Urunlers.Find(id);
+                var Uurunler = c.Urunlers.Find(id);
                
 
                 
-                if (model != null &&  U != null)
+                if (model != null && Uurunler != null)
                 {
                     var sepet = c.Sepets.FirstOrDefault(x => x.kullaniciid == model.Cariid && x.UrunId == id);
                     if (sepet != null)
                     {
+                        decimal vergiliFiyat = Uurunler.Fiyat + Uurunler.Vergi;
+
+                       
                         sepet.Adet++;
-                        sepet.Fiyat = U.Fiyat * sepet.Adet;
+
+                       
+                        sepet.Fiyat = vergiliFiyat * sepet.Adet;
                     }
                     else
                     {
                         var urunSepet = new Sepet()
                         {
                             kullaniciid = model.Cariid,
-                            UrunId = U.UrunID,
+                            UrunId = Uurunler.UrunID,
                             Adet = 1,
-                            Fiyat = U.Fiyat,
-                            Tarih = DateTime.Now
+                            Fiyat = Uurunler.Fiyat,
+                            Tarih = DateTime.Now,
+                            Vergi = Uurunler.Vergi
                         };
                         c.Sepets.Add(urunSepet);
                     }
@@ -65,18 +73,18 @@ namespace ETicaretOtomasyonv2.Controllers
                         Exception innerException = ex.InnerException;
                         while (innerException != null)
                         {
-                            // Hata mesajını çıktıya yazdır
+                           
                             Console.WriteLine(innerException.Message);
                             innerException = innerException.InnerException;
                         }
 
-                        // İstisnayı tekrar fırlat
+                     
                         throw;
                     }
                 }
-                return View(); // Consider returning an appropriate view here
+                return View(); 
             }
-            return HttpNotFound(); // Consider returning an appropriate result here
+            return HttpNotFound();
         }
 
         public ActionResult SepetCount(int? count)
@@ -114,7 +122,7 @@ namespace ETicaretOtomasyonv2.Controllers
                     }
                     else if (kid2 != null)
                     {
-                        Tutar2 = c.Sepets.Where(b => b.kullaniciid == kid2.kullaniciid).Sum(x => x.Urunler.Fiyat + x.Adet);
+                        Tutar2 = c.Sepets.Where(b => b.kullaniciid == kid2.kullaniciid).Sum(x => x.Urunler.Fiyat * x.Adet);
                         ViewBag.Tutar2 = Tutar2 + "TL";
                     }
                     return PartialView(model);

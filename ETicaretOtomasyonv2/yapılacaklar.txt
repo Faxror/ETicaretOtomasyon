@@ -1,6 +1,11 @@
-﻿ödeme yöntemi sayfası
+﻿Yapılıyor;
+
+Detaylar Sayfası Eklenecek
+
+Yapılacaklar;
+ödeme yöntemi sayfası
 Ana Sayfa değişicek
 Login ve Register Değiştirilecek
-Detaylar Sayfası Eklenecek
+
 Favoriler Eklenecek
 Sepete Ekleme Yapınca Sayı Değeri atacak aynı şekilde favorilerde.

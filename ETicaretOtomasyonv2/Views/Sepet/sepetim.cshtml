@@ -109,13 +109,13 @@
                             <th>Sil</th>
                         </tr>
                     </thead>
-                    @foreach (var item in Model)
+                    @foreach (var items in Model)
                     {
                         <tbody class="align-middle">
                             <tr>
 
-                                <td class="align-middle"><img src="~/eshopper-1.0.0/img/product-1.jpg" alt="" style="width: 50px;"> @item.Urunler.UrunAd</td>
-                                <td class="align-middle">@item.Urunler.Fiyat</td>
+                                <td class="align-middle"><img src="~/eshopper-1.0.0/img/product-1.jpg" alt="" style="width: 50px;"> @items.Urunler.UrunAd</td>
+                                <td class="align-middle">@items.Urunler.Fiyat</td>
                                 <td class="align-middle">
                                     <div class="input-group quantity mx-auto" style="width: 100px;">
                                         <div class="input-group-btn">
@@ -123,7 +123,7 @@
                                                 <i class="fa fa-minus"></i>
                                             </button>
                                         </div>
-                                        <input type="text" class="form-control form-control-sm bg-secondary text-center" value="@item.Adet">
+                                        <input type="text" class="form-control form-control-sm bg-secondary text-center" value="@items.Adet">
                                         <div class="input-group-btn">
                                             <button class="btn btn-sm btn-primary btn-plus">
                                                 <i class="fa fa-plus"></i>
@@ -131,7 +131,7 @@
                                         </div>
                                     </div>
                                 </td>
-                                <td class="align-middle">@ViewBag.Tutar</td>
+                                <td class="align-middle">@Model.Sum(item => item.Fiyat)</td>
                                 <td class="align-middle"><button class="btn btn-sm btn-primary"><i class="fa fa-times"></i></button></td>
 
                             </tr>

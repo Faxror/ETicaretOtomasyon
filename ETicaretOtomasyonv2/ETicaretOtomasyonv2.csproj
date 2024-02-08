@@ -388,6 +388,18 @@
     <Compile Include="Migrations\202401252311007_sa.designer.cs">
       <DependentUpon>202401252311007_sa.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202402081955321_tax_add.cs" />
+    <Compile Include="Migrations\202402081955321_tax_add.designer.cs">
+      <DependentUpon>202402081955321_tax_add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202402081958038_tax_2.cs" />
+    <Compile Include="Migrations\202402081958038_tax_2.designer.cs">
+      <DependentUpon>202402081958038_tax_2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202402082021498_tax_3.cs" />
+    <Compile Include="Migrations\202402082021498_tax_3.designer.cs">
+      <DependentUpon>202402082021498_tax_3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Siniflar\Admin.cs" />
     <Compile Include="Models\Siniflar\Cariler.cs" />
@@ -900,6 +912,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202401252311007_sa.resx">
       <DependentUpon>202401252311007_sa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202402081955321_tax_add.resx">
+      <DependentUpon>202402081955321_tax_add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202402081958038_tax_2.resx">
+      <DependentUpon>202402081958038_tax_2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202402082021498_tax_3.resx">
+      <DependentUpon>202402082021498_tax_3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
