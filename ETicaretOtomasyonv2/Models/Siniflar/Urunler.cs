@@ -30,7 +30,7 @@ namespace ETicaretOtomasyonv2.Models.Siniflar
         public  virtual Kategori Kategori { get; set; }
 
 
-        
+
         public ICollection<SatisHareket> SatisHareket { get; set; }
         
     }

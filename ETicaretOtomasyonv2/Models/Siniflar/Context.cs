@@ -20,5 +20,9 @@ namespace ETicaretOtomasyonv2.Models.Siniflar
         public DbSet<Admin> Admins { get; set; }
         public DbSet<Sepet> Sepets { get; set; }
         public DbSet<Sales> Sales { get; set; }
+
+   
     }
+
+
 }

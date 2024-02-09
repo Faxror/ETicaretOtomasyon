@@ -66,7 +66,7 @@ namespace ETicaretOtomasyonv2.Controllers
                     try
                     {
                         c.SaveChanges();
-                        return RedirectToAction("sepetim");
+                        return RedirectToAction("DetaylarPage", "Home");
                     }
                     catch (DbUpdateException ex)
                     {
